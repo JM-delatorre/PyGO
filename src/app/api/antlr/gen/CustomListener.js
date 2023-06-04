@@ -1,13 +1,17 @@
 // Generated from Python3.g4 by ANTLR 4.12.0
 // jshint ignore: start
 import antlr4 from 'antlr4';
-// const antlr4 = require('antlsr4')
+// const antlr4 = require('antlr4')
+import Python3Listener from './Python3Listener.js';
+// const Python3Listener = require('./Python3Listener');
 
 // This class defines a complete listener for a parse tree produced by Python3Parser.
-export default class Python3Listener extends antlr4.tree.ParseTreeListener {
+export default class CustomListener extends Python3Listener {
 
 	// Enter a parse tree produced by Python3Parser#single_input.
 	enterSingle_input(ctx) {
+		console.dir("Estoy entrando aaa")
+		
 	}
 
 	// Exit a parse tree produced by Python3Parser#single_input.
@@ -116,6 +120,7 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 	// Enter a parse tree produced by Python3Parser#stmt.
 	enterStmt(ctx) {
+		console.dir("Entrando a un statement")
 	}
 
 	// Exit a parse tree produced by Python3Parser#stmt.
@@ -503,6 +508,7 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 	// Enter a parse tree produced by Python3Parser#star_expr.
 	enterStar_expr(ctx) {
+
 	}
 
 	// Exit a parse tree produced by Python3Parser#star_expr.
@@ -511,8 +517,7 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 
 	// Enter a parse tree produced by Python3Parser#expr.
-	enterExpr(ctx) {
-	}
+	enterExpr(ctx) {}
 
 	// Exit a parse tree produced by Python3Parser#expr.
 	exitExpr(ctx) {
@@ -584,6 +589,8 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 	// Enter a parse tree produced by Python3Parser#atom.
 	enterAtom(ctx) {
+		if (ctx.NAME() )
+		console.dir(ctx.NAME().getText())
 	}
 
 	// Exit a parse tree produced by Python3Parser#atom.
@@ -746,8 +753,8 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 	// Enter a parse tree produced by Python3Parser#number.
 	enterNumber(ctx) {
+		console.dir(ctx.integer().getText())
 	}
-
 
 	// Exit a parse tree produced by Python3Parser#number.
 	exitNumber(ctx) {
@@ -766,4 +773,4 @@ export default class Python3Listener extends antlr4.tree.ParseTreeListener {
 
 }
 
-// module.exports = Python3Listener;
+// module.exports = CustomListener
