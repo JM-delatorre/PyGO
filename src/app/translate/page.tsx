@@ -17,10 +17,16 @@ export default function Translate() {
     const handleTranslate = async() =>{
         setLoading(true)
         const myData : any = await makeTranslation({data: code})
-        let data = await myData.json()
-        console.dir(data.data)
-        setTranslatedCode(data.data)
-        setLoading(false)
+        
+        if(myData.status == 200){
+            let data = await myData.json()
+            console.dir(data.data)
+            setTranslatedCode(data.data)
+            setLoading(false)
+        }else{
+            setLoading(false)
+        }
+        
     }
     const handleReset = () =>{
         setCode('')
