@@ -50,7 +50,7 @@ export default function Translate() {
                 </div>
 
                 <div className=' flex-1'>
-                    <div className='flex flex-col sm:flex-row justify-center gap-5 mt-4  px-20'>
+                    <div className='flex flex-col sm:flex-row justify-center gap-5 mt-4  sm:px-20'>
                         <div className='w-full  '>
                             <CodeTextArea code={code} setCode={setCode} lang='py' />
                         </div>
